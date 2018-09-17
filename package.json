@@ -1,0 +1,33 @@
+{
+  "name": "createreactwalkthrough",
+  "version": "1.0.0",
+  "description": "create a react app from scratch, covalence walkthrough",
+  "main": "server/lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:client": "webpack",
+    "build:server": "babel ./server/src -d ./server/lib",
+    "dev": "concurrently \"npm run watch:client\" \"npm run watch:server\"",
+    "start": "npm run build:client && npm run build:server && npm run start:server",
+    "start:server": "node server/lib/index.js",
+    "watch:client": "webpack --watch",
+    "watch:server": "nodemon --watch server/src --exec \"npm run build:server && npm run start:server\""
+},
+"author": "Christy Welsh",
+"license": "ISC",
+"dependencies": {
+  "babel-cli": "^6.26.0",
+  "babel-core": "^6.26.3",
+  "babel-loader": "^8.0.2",
+  "babel-preset-env": "^1.7.0",
+  "babel-preset-react": "^6.24.1",
+  "react": "^16.5.1",
+  "react-dom": "^16.5.1",
+  "react-router-dom": "^4.3.1",
+  "webpack": "^4.19.0"
+},
+"devDependencies": {
+  "concurrently": "^4.0.1",
+  "nodemon": "^1.18.4"
+}
+}
